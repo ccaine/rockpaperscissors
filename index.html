@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+<head>
+<title>Page Title</title>
+
+    <script>
+        function computerPlay (){
+            let move = Math.floor(Math.random()*3);
+            if(move == 0){
+                return 'Rock';
+            }
+            else if(move == 1){
+                return 'Paper';
+            }
+            else {
+                return 'Scissors';
+            }
+        }
+    
+        function playRound (playerSelection, computerSelection) {
+            let player = playerSelection.toLowerCase();
+            let computer = computerSelection.toLowerCase();
+    
+            if(player == computer){
+                console.log("It's a Tie!");
+                return 2;
+            }
+            else if(player == 'rock'){
+                if(computer == 'paper'){
+                    console.log("You Lose! Paper beats Rock!");
+                    return 0;
+                }
+                else if (computer == 'scissors'){
+                    console.log("You Win! Rock beats Scissors!");
+                    return 1;
+                }
+            }
+            else if(player == 'paper'){
+                if(computer == 'rock'){
+                    console.log("You Win! Paper beats Rock!");
+                    return 1;
+                }
+                else if (computer == 'scissors'){
+                    console.log("You Lose! Scissors beats Paper");
+                    return 0;
+                }
+            }
+            else if(player == 'scissors'){
+                if(computer == 'rock'){
+                    console.log("You Lose! Rock beats Scissors!");
+                    return 0;
+                }
+                else if(computer == 'paper'){
+                    console.log("You Win! Paper beats Scissors!");
+                    return 1;
+                }
+            }
+            else {
+                console.log("Not a valid entry.")
+            }            
+        }
+
+        function game() {
+            let pScore = 0;
+            let cScore = 0;
+
+            
+            for(let i = 0; i < 5; i++){
+                let yPut = prompt("What is your move?");
+                let cPut = computerPlay();
+                let result = playRound(yPut,cPut);
+                if (result == 1){
+                    pScore++;
+                }
+                else if (result == 0){
+                    cScore++;
+                }
+            }
+            console.log(pScore);
+            console.log(cScore);
+
+            if(pScore == cScore){
+                console.log("No one wins! It's a tie!");
+            }
+            else if (pScore > cScore){
+                console.log("You Win!");
+            }
+            else {
+                console.log("You Lose!");
+            }
+
+        }
+        
+        game();
+    </script>
+
+</head>
+<body>
+        
+        
+<noscript>Sorry, your browser does not support JavaScript!</noscript>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+</html> 
